@@ -14,7 +14,17 @@ final class SynacorVM {
     private var ip: Int
     private var stack: [Int]
 
-    enum State {
+    typealias State = [String: [Int]]
+    var state: State {
+        get { [ "memory": memory, "ip": [ip], "stack": stack ] }
+        set {
+            memory = newValue["memory"]!
+            ip = newValue["ip"]![0]
+            stack = newValue["stack"]!
+        }
+    }
+
+    enum Status {
         case halted
         case inputNeeded
         case stopRequested
@@ -31,7 +41,7 @@ final class SynacorVM {
     }
 
     @discardableResult
-    func run() -> State {
+    func run() -> Status {
         repeat {
             let instruction = memory[ip]
 
@@ -176,7 +186,7 @@ final class SynacorVM {
         } while true
     }
 
-    func decode(_ value: Int) -> Int {
+    private func decode(_ value: Int) -> Int {
         return value > 32767 ? memory[value] : value
     }
 }
