@@ -8,23 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		90F37A2123B467230067DA69 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F37A2023B467230067DA69 /* main.swift */; };
+		90F37A2823B4681E0067DA69 /* SynacorVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F37A2723B4681E0067DA69 /* SynacorVM.swift */; };
+		90F37A2A23B4724C0067DA69 /* challenge.bin in CopyFiles */ = {isa = PBXBuildFile; fileRef = 90F37A2923B472130067DA69 /* challenge.bin */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		90F37A1B23B467230067DA69 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
 			files = (
+				90F37A2A23B4724C0067DA69 /* challenge.bin in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		90F37A1D23B467230067DA69 /* SynacorVM */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SynacorVM; sourceTree = BUILT_PRODUCTS_DIR; };
 		90F37A2023B467230067DA69 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		90F37A2723B4681E0067DA69 /* SynacorVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynacorVM.swift; sourceTree = "<group>"; };
+		90F37A2923B472130067DA69 /* challenge.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; name = challenge.bin; path = ../../challenge.bin; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +62,9 @@
 		90F37A1F23B467230067DA69 /* SynacorVM */ = {
 			isa = PBXGroup;
 			children = (
+				90F37A2923B472130067DA69 /* challenge.bin */,
 				90F37A2023B467230067DA69 /* main.swift */,
+				90F37A2723B4681E0067DA69 /* SynacorVM.swift */,
 			);
 			path = SynacorVM;
 			sourceTree = "<group>";
@@ -120,6 +127,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90F37A2823B4681E0067DA69 /* SynacorVM.swift in Sources */,
 				90F37A2123B467230067DA69 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
