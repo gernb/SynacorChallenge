@@ -13,6 +13,8 @@
 		90F37A2C23B5939A0067DA69 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F37A2B23B5939A0067DA69 /* Room.swift */; };
 		90F37A2E23B596180067DA69 /* ExploreMaze.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F37A2D23B596180067DA69 /* ExploreMaze.swift */; };
 		90F37A3023B5B5EF0067DA69 /* solveCoins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F37A2F23B5B5EF0067DA69 /* solveCoins.swift */; };
+		90F37A3223B5C9A00067DA69 /* teleporterCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F37A3123B5C9A00067DA69 /* teleporterCode.swift */; };
+		90F37A3423B661890067DA69 /* Disassembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F37A3323B661890067DA69 /* Disassembler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,6 +38,8 @@
 		90F37A2B23B5939A0067DA69 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		90F37A2D23B596180067DA69 /* ExploreMaze.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreMaze.swift; sourceTree = "<group>"; };
 		90F37A2F23B5B5EF0067DA69 /* solveCoins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = solveCoins.swift; sourceTree = "<group>"; };
+		90F37A3123B5C9A00067DA69 /* teleporterCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = teleporterCode.swift; sourceTree = "<group>"; };
+		90F37A3323B661890067DA69 /* Disassembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disassembler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,8 @@
 				90F37A2B23B5939A0067DA69 /* Room.swift */,
 				90F37A2D23B596180067DA69 /* ExploreMaze.swift */,
 				90F37A2F23B5B5EF0067DA69 /* solveCoins.swift */,
+				90F37A3123B5C9A00067DA69 /* teleporterCode.swift */,
+				90F37A3323B661890067DA69 /* Disassembler.swift */,
 			);
 			path = SynacorVM;
 			sourceTree = "<group>";
@@ -136,9 +142,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90F37A3223B5C9A00067DA69 /* teleporterCode.swift in Sources */,
 				90F37A3023B5B5EF0067DA69 /* solveCoins.swift in Sources */,
 				90F37A2E23B596180067DA69 /* ExploreMaze.swift in Sources */,
 				90F37A2823B4681E0067DA69 /* SynacorVM.swift in Sources */,
+				90F37A3423B661890067DA69 /* Disassembler.swift in Sources */,
 				90F37A2123B467230067DA69 /* main.swift in Sources */,
 				90F37A2C23B5939A0067DA69 /* Room.swift in Sources */,
 			);

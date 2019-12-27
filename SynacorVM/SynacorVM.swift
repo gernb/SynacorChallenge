@@ -6,11 +6,13 @@
 //  Copyright © 2019 peter bohac. All rights reserved.
 //
 
+import Foundation
+
 final class SynacorVM {
     private let inputProvider: (() -> Character?)
     private let outputHandler: ((Character) -> Bool)
 
-    private var memory: [Int]
+    var memory: [Int]
     private var ip: Int
     private var stack: [Int]
 
@@ -29,6 +31,7 @@ final class SynacorVM {
         case inputNeeded
         case stopRequested
         case invalidInstruction
+        case timeExpired
     }
 
     init(program: [Int], input: @escaping (() -> Character?), output: @escaping ((Character) -> Bool)) {
@@ -40,8 +43,12 @@ final class SynacorVM {
         program.enumerated().forEach { offset, value in memory[offset] = value }
     }
 
+    func setRegister(_ register: Int, to value: Int) {
+        memory[32767 + register] = value
+    }
+
     @discardableResult
-    func run() -> Status {
+    func run(until time: DispatchTime = .distantFuture) -> Status {
         repeat {
             let instruction = memory[ip]
 
@@ -183,7 +190,8 @@ final class SynacorVM {
             default:
                 return .invalidInstruction
             }
-        } while true
+        } while DispatchTime.now() < time
+        return .timeExpired
     }
 
     private func decode(_ value: Int) -> Int {

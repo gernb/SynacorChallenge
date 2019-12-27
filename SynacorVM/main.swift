@@ -13,6 +13,8 @@ var checkpointsFilename: String?
 var savedStateFilename: String?
 var isExploringMaze = false
 var isSolvingCoins = false
+var disassemble = false
+var isSolvingTeleporterCode = false
 var unusedArgs: [String] = []
 var arguments = CommandLine.arguments.dropFirst()
 while arguments.isEmpty == false {
@@ -27,6 +29,10 @@ while arguments.isEmpty == false {
         isExploringMaze = true
     } else if arg == "--solveCoins" {
         isSolvingCoins = true
+    } else if arg == "--disassemble" {
+        disassemble = true
+    } else if arg == "--solveTeleporter" {
+        isSolvingTeleporterCode = true
     } else {
         if programFilename == nil {
             programFilename = arg
@@ -138,6 +144,20 @@ if isSolvingCoins {
     exit(0)
 }
 
+if disassemble {
+    let disassembler = Disassembler(state: vm.state)
+    disassembler.disassemble()
+    exit(0)
+}
+
+
+if isSolvingTeleporterCode {
+    findTeleporterCode()
+    exit(0)
+}
+
+var originalTeleportInstructions: [Int] = []
+
 enum Input: Equatable {
     case quit
     case restore(Int)
@@ -182,6 +202,33 @@ func getInput(prompt: String? = nil) -> Input {
         }
         return .load(file)
     }
+    if line == "patch teleporter" {
+        if originalTeleportInstructions.isEmpty {
+            originalTeleportInstructions = Array(vm.memory[6027 ... 6030])
+            vm.setRegister(8, to: 25734)    // set register 8 to non-zero
+            vm.memory[6027] = 1             // set register 1 to 6 and return
+            vm.memory[6028] = 32768
+            vm.memory[6029] = 6
+            vm.memory[6030] = 18
+            print("Patch in place")
+        } else {
+            print("Teleporter is already patched!")
+        }
+        return getInput(prompt: prompt)
+    }
+    if line == "unpatch teleporter" {
+        if originalTeleportInstructions.isEmpty {
+            print("Teleporter is not currently patched!")
+        } else {
+            vm.memory[6027] = originalTeleportInstructions[0]
+            vm.memory[6028] = originalTeleportInstructions[1]
+            vm.memory[6029] = originalTeleportInstructions[2]
+            vm.memory[6030] = originalTeleportInstructions[3]
+            originalTeleportInstructions = []
+            print("Patch removed")
+        }
+        return getInput(prompt: prompt)
+    }
     return .other(line)
 }
 
@@ -221,7 +268,7 @@ while true {
             preconditionFailure()
         }
 
-    case .stopRequested, .invalidInstruction:
+    case .stopRequested, .invalidInstruction, .timeExpired:
         preconditionFailure()
     }
 }
