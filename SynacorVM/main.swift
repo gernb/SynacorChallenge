@@ -11,6 +11,8 @@ import Foundation
 var programFilename: String?
 var checkpointsFilename: String?
 var savedStateFilename: String?
+var isExploringMaze = false
+var isSolvingCoins = false
 var unusedArgs: [String] = []
 var arguments = CommandLine.arguments.dropFirst()
 while arguments.isEmpty == false {
@@ -21,6 +23,10 @@ while arguments.isEmpty == false {
         checkpointsFilename = arguments.removeFirst()
     } else if (arg == "--load" || arg == "-l") && arguments.count > 0 {
         savedStateFilename = arguments.removeFirst()
+    } else if arg == "--exploreMaze" {
+        isExploringMaze = true
+    } else if arg == "--solveCoins" {
+        isSolvingCoins = true
     } else {
         if programFilename == nil {
             programFilename = arg
@@ -120,6 +126,16 @@ if let filename = savedStateFilename {
     loadGameState(from: filename)
 } else if checkpoints[0] != nil {
     restoreCheckpoint(index: 0)
+}
+
+if isExploringMaze {
+    exploreMaze(from: savedStateFilename!)
+    exit(0)
+}
+
+if isSolvingCoins {
+    solveCoins(from: savedStateFilename!)
+    exit(0)
 }
 
 enum Input: Equatable {
