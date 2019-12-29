@@ -15,6 +15,7 @@
 		90F37A3023B5B5EF0067DA69 /* solveCoins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F37A2F23B5B5EF0067DA69 /* solveCoins.swift */; };
 		90F37A3223B5C9A00067DA69 /* teleporterCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F37A3123B5C9A00067DA69 /* teleporterCode.swift */; };
 		90F37A3423B661890067DA69 /* Disassembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F37A3323B661890067DA69 /* Disassembler.swift */; };
+		90F37A3623B6BFC00067DA69 /* exploreVault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F37A3523B6BFC00067DA69 /* exploreVault.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,6 +41,7 @@
 		90F37A2F23B5B5EF0067DA69 /* solveCoins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = solveCoins.swift; sourceTree = "<group>"; };
 		90F37A3123B5C9A00067DA69 /* teleporterCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = teleporterCode.swift; sourceTree = "<group>"; };
 		90F37A3323B661890067DA69 /* Disassembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disassembler.swift; sourceTree = "<group>"; };
+		90F37A3523B6BFC00067DA69 /* exploreVault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = exploreVault.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				90F37A2F23B5B5EF0067DA69 /* solveCoins.swift */,
 				90F37A3123B5C9A00067DA69 /* teleporterCode.swift */,
 				90F37A3323B661890067DA69 /* Disassembler.swift */,
+				90F37A3523B6BFC00067DA69 /* exploreVault.swift */,
 			);
 			path = SynacorVM;
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90F37A3623B6BFC00067DA69 /* exploreVault.swift in Sources */,
 				90F37A3223B5C9A00067DA69 /* teleporterCode.swift in Sources */,
 				90F37A3023B5B5EF0067DA69 /* solveCoins.swift in Sources */,
 				90F37A2E23B596180067DA69 /* ExploreMaze.swift in Sources */,

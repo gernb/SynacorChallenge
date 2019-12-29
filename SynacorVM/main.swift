@@ -15,6 +15,7 @@ var isExploringMaze = false
 var isSolvingCoins = false
 var disassemble = false
 var isSolvingTeleporterCode = false
+var isExploringVault = false
 var unusedArgs: [String] = []
 var arguments = CommandLine.arguments.dropFirst()
 while arguments.isEmpty == false {
@@ -33,6 +34,8 @@ while arguments.isEmpty == false {
         disassemble = true
     } else if arg == "--solveTeleporter" {
         isSolvingTeleporterCode = true
+    } else if arg == "--exploreVault" {
+        isExploringVault = true
     } else {
         if programFilename == nil {
             programFilename = arg
@@ -150,9 +153,13 @@ if disassemble {
     exit(0)
 }
 
-
 if isSolvingTeleporterCode {
     findTeleporterCode()
+    exit(0)
+}
+
+if isExploringVault {
+    exploreVault(from: savedStateFilename!)
     exit(0)
 }
 

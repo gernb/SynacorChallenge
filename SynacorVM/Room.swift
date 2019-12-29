@@ -11,7 +11,7 @@ struct Room: Hashable {
     let exits: [String]
     let items: [String]
 
-    var name: String { description[0] }
+    var name: String { description.filter { $0.hasPrefix("==") }.first! }
 
     init(_ description: String) {
         self.description = description.trimmingCharacters(in: .whitespacesAndNewlines).components(separatedBy: "\n")
